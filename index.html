@@ -16,6 +16,8 @@
             --accent-green: #34d399;
             --code-bg: #090d16;
             --pass-green: #10b981;
+            --danger-red: #f87171;
+            --warning-amber: #fbbf24;
         }
 
         * {
@@ -187,10 +189,11 @@
             color: var(--text-main);
         }
 
-        .pass-tag {
-            color: var(--pass-green);
-            font-weight: bold;
-        }
+        .pass-tag { color: var(--pass-green); font-weight: bold; }
+        .tag-home { color: var(--pass-green); font-weight: bold; }
+        .tag-worse1 { color: var(--accent-blue); }
+        .tag-worse2 { color: var(--warning-amber); }
+        .tag-worse3 { color: var(--danger-red); }
 
         /* Dynamic Diagram Component Styles */
         .arch-container {
@@ -202,7 +205,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-family: inherit;
         }
 
         .arch-node {
@@ -233,17 +235,8 @@
             margin: 0.8rem 0;
         }
 
-        .arch-backbone .title {
-            color: #a5b4fc;
-            font-weight: bold;
-            font-size: 1.05rem;
-        }
-
-        .arch-backbone .sub {
-            color: #94a3b8;
-            font-size: 0.82rem;
-            margin-top: 0.2rem;
-        }
+        .arch-backbone .title { color: #a5b4fc; font-weight: bold; font-size: 1.05rem; }
+        .arch-backbone .sub { color: #94a3b8; font-size: 0.82rem; margin-top: 0.2rem; }
 
         .badge-frozen {
             background: rgba(239, 68, 68, 0.2);
@@ -276,27 +269,13 @@
         .branch-2 { border-top: 3px solid #34d399; }
         .branch-3 { border-top: 3px solid #c084fc; }
 
-        .branch-head {
-            font-weight: bold;
-            font-size: 0.92rem;
-            margin-bottom: 0.3rem;
-        }
-
+        .branch-head { font-weight: bold; font-size: 0.92rem; margin-bottom: 0.3rem; }
         .branch-1 .branch-head { color: #38bdf8; }
         .branch-2 .branch-head { color: #34d399; }
         .branch-3 .branch-head { color: #c084fc; }
 
-        .branch-param {
-            font-size: 0.75rem;
-            color: #94a3b8;
-            margin-bottom: 0.5rem;
-        }
-
-        .branch-desc {
-            font-size: 0.8rem;
-            color: #cbd5e1;
-            line-height: 1.35;
-        }
+        .branch-param { font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem; }
+        .branch-desc { font-size: 0.8rem; color: #cbd5e1; line-height: 1.35; }
 
         .output-node {
             margin-top: 0.8rem;
@@ -311,11 +290,7 @@
         .out-2 { background: rgba(52, 211, 153, 0.1); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); }
         .out-3 { background: rgba(192, 132, 252, 0.1); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.3); }
 
-        .arch-arrow {
-            color: #64748b;
-            font-size: 1.1rem;
-            margin: 0.3rem 0;
-        }
+        .arch-arrow { color: #64748b; font-size: 1.1rem; margin: 0.3rem 0; }
 
         /* Horizontal Flow Layout (Medallion & News Pipeline) */
         .flow-horizontal {
@@ -337,21 +312,50 @@
             flex: 1;
         }
 
-        .flow-box h5 {
-            color: var(--accent-blue);
-            font-size: 0.9rem;
-            margin-bottom: 0.2rem;
+        .flow-box h5 { color: var(--accent-blue); font-size: 0.9rem; margin-bottom: 0.2rem; }
+        .flow-box p { color: var(--text-sub); font-size: 0.78rem; }
+        .flow-arrow-h { color: var(--accent-purple); font-weight: bold; font-size: 1.2rem; }
+
+        /* Feature Sub-cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0 1.5rem 0;
         }
 
-        .flow-box p {
+        .info-card {
+            background: var(--code-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .info-card h5 { color: var(--accent-blue); font-size: 0.92rem; margin-bottom: 0.4rem; }
+        .info-card p { color: var(--text-sub); font-size: 0.83rem; line-height: 1.4; }
+
+        /* Project Image Frame */
+        .project-img-frame {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            background-color: var(--code-bg);
+        }
+
+        .project-img-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .img-caption {
+            font-size: 0.8rem;
             color: var(--text-sub);
-            font-size: 0.78rem;
-        }
-
-        .flow-arrow-h {
-            color: var(--accent-purple);
-            font-weight: bold;
-            font-size: 1.2rem;
+            text-align: center;
+            padding: 0.5rem;
+            background: #111827;
         }
 
         /* Technical Arsenal Section */
@@ -377,10 +381,7 @@
             padding-bottom: 0.5rem;
         }
 
-        .arsenal-list {
-            list-style: none;
-        }
-
+        .arsenal-list { list-style: none; }
         .arsenal-list li {
             color: var(--text-sub);
             font-size: 0.95rem;
@@ -551,50 +552,172 @@
                 </div>
             </div>
 
-            <!-- PROJECT 2 -->
+            <!-- PROJECT 2: NASA C-MAPSS -->
             <div class="project-card">
                 <div class="project-header">
                     <div class="project-title">
                         <h3>AeroPulse PHM Framework — NASA C-MAPSS</h3>
-                        <div class="project-subtitle">End-to-End Prognostics & Health Management for Turbofan Engines</div>
+                        <div class="project-subtitle">Validated PHM Framework for Turbofan Remaining Useful Life (RUL) Prediction</div>
                     </div>
                     <a href="https://github.com/manisshabhallah/nasa-cmaps-rul-prediction" target="_blank" class="btn-github">View Source Code ↗</a>
                 </div>
 
                 <p class="project-desc">
-                    This project builds a complete predictive maintenance system for aircraft engines using 21 sensor readings over time to predict Remaining Useful Life (RUL). The system implements a modern Medallion architecture (Bronze → Silver → Gold), deep LSTM neural networks, SHAP model explainability, and an interactive Streamlit operational dashboard.
+                    <strong>Presented by Manisha Bhalla (M25DE105002)</strong> — Solves the <em>Trust Gap in RUL Prediction</em>: bridging the divergence between reported benchmark RMSE and real deployment reliability. Incorporates evaluation-protocol auditing, bidirectional-LSTM ablation, and cross-domain regime transfer across all 4 NASA C-MAPSS sub-datasets.
                 </p>
 
-                <h4 style="color: var(--text-main); margin-bottom: 0.5rem; font-size: 0.95rem;">🏗️ Medallion Pipeline Architecture:</h4>
+                <!-- Project Image Frame (Presentation Slide / Diagram) -->
+                <div class="project-img-frame">
+                    <!-- Simply place your image file in the same folder or update the src path -->
+                    <img src="nasa-cmaps-architecture.png" alt="AeroPulse PHM NASA C-MAPSS Architecture" onerror="this.style.display='none'; document.getElementById('img-fallback').style.display='block';">
+                    <div id="img-fallback" style="display:none; padding:1.5rem; text-align:center; color:var(--text-sub); font-size:0.85rem;">
+                        🖼️ <em>Slide / Image Placeholder: Save your presentation image as <code>nasa-cmaps-architecture.png</code> in the same folder to display it here.</em>
+                    </div>
+                    <div class="img-caption">Figure: Aeropulse PHM Framework Slide & System Architecture Diagram</div>
+                </div>
+
+                <h4 style="color: var(--text-main); margin-bottom: 0.5rem; font-size: 0.95rem;">🚧 Key Barriers to Trustworthy RUL Prediction Addressed:</h4>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h5>1. Sensor Noise & Drift</h5>
+                        <p>Multi-stage sensor noise masking early-stage engine degradation trends.</p>
+                    </div>
+                    <div class="info-card">
+                        <h5>2. Operating Regime Shift</h5>
+                        <p>Up to 6 simultaneous flight regimes (altitude, Mach, throttle) altering baseline sensor norms.</p>
+                    </div>
+                    <div class="info-card">
+                        <h5>3. Silent Evaluation Errors</h5>
+                        <p>Engine-level leakage or truncated test sets hiding flawed models behind good metrics.</p>
+                    </div>
+                    <div class="info-card">
+                        <h5>4. Unknown Transferability</h5>
+                        <p>Lack of cross-regime transfer measurement across real-world diverse engine fleets.</p>
+                    </div>
+                </div>
+
+                <h4 style="color: var(--text-main); margin-bottom: 0.5rem; font-size: 0.95rem;">🏗️ System Architecture & Medallion Data Pipeline:</h4>
                 
                 <!-- Project 2 Flowchart Diagram -->
                 <div class="arch-container">
                     <div class="flow-horizontal">
                         <div class="flow-box">
-                            <h5>1. Raw Data</h5>
-                            <p>NASA .txt logs (21 Sensors)</p>
+                            <h5>1. Bronze Layer</h5>
+                            <p>Raw Ingest NASA .txt logs (21 Sensors)</p>
                         </div>
                         <div class="flow-arrow-h">➔</div>
                         <div class="flow-box">
-                            <h5>2. Bronze Layer</h5>
-                            <p>Ingestion + Metadata Parquet</p>
+                            <h5>2. Silver Layer</h5>
+                            <p>Cleaned + Piecewise RUL Labeling</p>
                         </div>
                         <div class="flow-arrow-h">➔</div>
                         <div class="flow-box">
-                            <h5>3. Silver Layer</h5>
-                            <p>Cleaned + Piecewise RUL</p>
+                            <h5>3. Gold Layer</h5>
+                            <p>30-Cycle Windows (42 Engine Feats)</p>
                         </div>
                         <div class="flow-arrow-h">➔</div>
                         <div class="flow-box">
-                            <h5>4. Gold Layer</h5>
-                            <p>30-Cycle Sliding Window</p>
+                            <h5>4. Train Model</h5>
+                            <p>2-Layer LSTM / BiLSTM Variants</p>
                         </div>
                         <div class="flow-arrow-h">➔</div>
                         <div class="flow-box" style="border-color: var(--accent-green);">
-                            <h5 style="color: var(--accent-green);">5. Deep LSTM & SHAP</h5>
-                            <p>RUL Inference & Dashboard</p>
+                            <h5 style="color: var(--accent-green);">5. Audit & Evaluate</h5>
+                            <p>GroupShuffleSplit (RMSE/MAE)</p>
                         </div>
                     </div>
+                </div>
+
+                <h4 style="color: var(--text-main); margin-bottom: 0.5rem; font-size: 0.95rem;">📊 Results & Model Performance Comparison (RMSE):</h4>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dataset</th>
+                                <th>Vanilla LSTM</th>
+                                <th>Bidirectional LSTM</th>
+                                <th>Best Published SOTA (DCFA, 2023)*</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>FD001</strong> (1 cond)</td>
+                                <td>13.71</td>
+                                <td><strong>12.69</strong></td>
+                                <td>11.74</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FD002</strong> (6 cond)</td>
+                                <td><strong>17.30</strong></td>
+                                <td>18.21</td>
+                                <td>16.81</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FD003</strong> (1 cond, 2 fault)</td>
+                                <td><strong>15.30</strong></td>
+                                <td>19.44</td>
+                                <td>10.71</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FD004</strong> (6 cond, 2 fault)</td>
+                                <td><strong>20.72</strong></td>
+                                <td>24.15</td>
+                                <td>17.77</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="color: var(--text-sub); font-size: 0.8rem; margin-bottom: 1.5rem;">*Published numbers from literature tabulated for SOTA reference positioning on identical benchmark tasks.</p>
+
+                <h4 style="color: var(--text-main); margin-bottom: 0.5rem; font-size: 0.95rem;">🌐 Cross-Domain Generalization Matrix (Bidirectional LSTM):</h4>
+                <p style="color: var(--text-sub); font-size: 0.85rem; margin-bottom: 0.8rem;">Trained on one operating regime, tested on all four (No Retraining):</p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Train ↓ / Test ➔</th>
+                                <th>FD001</th>
+                                <th>FD002</th>
+                                <th>FD003</th>
+                                <th>FD004</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>FD001</strong></td>
+                                <td class="tag-home">12.69 (Home)</td>
+                                <td class="tag-worse3">66.42 (&gt;4.5x)</td>
+                                <td class="tag-worse3">51.70 (&gt;3x)</td>
+                                <td class="tag-worse3">70.71 (&gt;4.5x)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FD002</strong></td>
+                                <td class="tag-worse3">64.43 (&gt;4.5x)</td>
+                                <td class="tag-home">18.21 (Home)</td>
+                                <td class="tag-worse3">66.11 (&gt;3x)</td>
+                                <td class="tag-worse2">40.72 (&gt;2x)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FD003</strong></td>
+                                <td class="tag-worse2">25.91 (&lt;2x)</td>
+                                <td class="tag-worse3">61.85 (&gt;3x)</td>
+                                <td class="tag-home">19.44 (Home)</td>
+                                <td class="tag-worse3">62.87 (&gt;3x)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FD004</strong></td>
+                                <td class="tag-worse2">30.75 (&lt;2.5x)</td>
+                                <td class="tag-worse1">27.78 (&lt;1.5x)</td>
+                                <td class="tag-worse3">55.10 (&gt;2.5x)</td>
+                                <td class="tag-home">24.15 (Home)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="background: var(--code-bg); border-left: 3px solid var(--accent-blue); padding: 1rem; border-radius: 0 8px 8px 0; font-size: 0.88rem; margin-top: 1rem;">
+                    <strong style="color: var(--accent-blue);">💡 Technical Deep-Dive Finding:</strong><br>
+                    Bidirectional reading helps ONLY on single-condition data (FD001: -7.4% RMSE reduction). On multi-condition data, operating regimes change WITHIN a 30-cycle window — the backward pass reads a different regime as 'future context', introducing noise rather than signal.
                 </div>
             </div>
 
