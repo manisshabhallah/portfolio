@@ -3,229 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architecture — NASA Turbofan RUL Pipeline</title>
+    <title>Predictive Maintenance & MLOps Portfolio</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --border-color: #30363d;
-            --accent-blue: #58a6ff;
-            --accent-green: #3fb950;
-            --accent-amber: #d29922;
-            --accent-purple: #bc8cff;
-            --text-primary: #c9d1d9;
-            --text-secondary: #8b949e;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-green: #34d399;
+            --accent-purple: #c084fc;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
-            margin: 0;
+            line-height: 1.6;
             padding: 2rem;
-            line-height: 1.5;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         header {
-            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+            padding-bottom: 2rem;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1rem;
         }
 
-        h1 {
-            color: #ffffff;
-            font-size: 2rem;
-            margin: 0 0 0.5rem 0;
-        }
-
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-
-        .badge {
-            background-color: rgba(88, 166, 255, 0.15);
+        header h1 {
+            font-size: 2.5rem;
             color: var(--accent-blue);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .arch-diagram {
-            width: 100%;
-            overflow-x: auto;
-        }
-
-        svg {
-            width: 100%;
-            height: auto;
-            min-width: 900px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .layer-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .bronze { color: var(--accent-amber); }
-        .silver { color: var(--accent-blue); }
-        .gold { color: var(--accent-purple); }
-        .serving { color: var(--accent-green); }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
 
-        ul {
-            padding-left: 1.2rem;
-            margin: 0;
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .tag-p1 { background-color: rgba(56, 189, 248, 0.15); color: var(--accent-blue); }
+        .tag-p2 { background-color: rgba(52, 211, 153, 0.15); color: var(--accent-green); }
+        .tag-p3 { background-color: rgba(192, 132, 252, 0.15); color: var(--accent-purple); }
+
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
             color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
         }
 
-        li { margin-bottom: 0.4rem; }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
 
-        code {
-            font-family: monospace;
-            background-color: rgba(110, 118, 129, 0.4);
-            padding: 0.1rem 0.3rem;
-            border-radius: 3px;
-            color: #ffffff;
+        .tech-item {
+            background-color: #0f172a;
+            color: var(--text-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .btn {
+            display: inline-block;
+            text-align: center;
+            background-color: var(--accent-blue);
+            color: #0f172a;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
     <header>
-        <span class="badge">M.Tech Data Engineering Project</span>
-        <h1>End-to-End Turbofan Engine Predictive Maintenance Engine</h1>
-        <p class="subtitle">Medallion Data Lakehouse Architecture • Deep Learning RUL Estimation • Model Explainability</p>
+        <h1> Predictive Maintenance & MLOps Portfolio</h1>
+        <p>End-to-End Deep Learning, Anomaly Detection & Survival Analytics on NASA Sensor Datasets</p>
     </header>
 
-    <div class="card">
-        <h2>System Architecture Overview</h2>
-        <div class="arch-diagram">
-            <svg viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg">
-                <!-- Definitions for arrows -->
-                <defs>
-                    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b949e"/>
-                    </marker>
-                </defs>
-
-                <!-- Data Source -->
-                <rect x="20" y="160" width="120" height="100" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
-                <text x="80" y="200" fill="#ffffff" text-anchor="middle" font-weight="bold" font-size="14">NASA C-MAPSS</text>
-                <text x="80" y="225" fill="#8b949e" text-anchor="middle" font-size="12">Raw Sensor Files</text>
-                <text x="80" y="242" fill="#8b949e" text-anchor="middle" font-size="10">(21 Sensors / .txt)</text>
-
-                <!-- Arrow 1 -->
-                <line x1="140" y1="210" x2="180" y2="210" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
-
-                <!-- Bronze Layer -->
-                <rect x="180" y="160" width="140" height="100" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
-                <text x="250" y="195" fill="#d29922" text-anchor="middle" font-weight="bold" font-size="14">Bronze Layer</text>
-                <text x="250" y="220" fill="#c9d1d9" text-anchor="middle" font-size="12">Raw Ingestion</text>
-                <text x="250" y="240" fill="#8b949e" text-anchor="middle" font-size="11">Parquet Conversion</text>
-
-                <!-- Arrow 2 -->
-                <line x1="320" y1="210" x2="360" y2="210" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
-
-                <!-- Silver Layer -->
-                <rect x="360" y="160" width="150" height="100" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
-                <text x="435" y="190" fill="#58a6ff" text-anchor="middle" font-weight="bold" font-size="14">Silver Layer</text>
-                <text x="435" y="212" fill="#c9d1d9" text-anchor="middle" font-size="11">Data Normalization</text>
-                <text x="435" y="228" fill="#c9d1d9" text-anchor="middle" font-size="11">Sensor Selection</text>
-                <text x="435" y="244" fill="#c9d1d9" text-anchor="middle" font-size="11">Piecewise RUL Labels</text>
-
-                <!-- Arrow 3 -->
-                <line x1="510" y1="210" x2="550" y2="210" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
-
-                <!-- Gold Layer -->
-                <rect x="550" y="160" width="150" height="100" rx="8" fill="#161b22" stroke="#bc8cff" stroke-width="2"/>
-                <text x="625" y="190" fill="#bc8cff" text-anchor="middle" font-weight="bold" font-size="14">Gold Layer</text>
-                <text x="625" y="212" fill="#c9d1d9" text-anchor="middle" font-size="11">30-Cycle Windows</text>
-                <text x="625" y="228" fill="#c9d1d9" text-anchor="middle" font-size="11">Lag & Delta Features</text>
-                <text x="625" y="244" fill="#8b949e" text-anchor="middle" font-size="10">Training .npy Arrays</text>
-
-                <!-- Split Arrows to Training and Inference -->
-                <path d="M 700 210 L 730 210 L 730 110 L 760 110" fill="none" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
-                <path d="M 700 210 L 730 210 L 730 310 L 760 310" fill="none" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
-
-                <!-- Training Block -->
-                <rect x="760" y="60" width="200" height="100" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
-                <text x="860" y="90" fill="#3fb950" text-anchor="middle" font-weight="bold" font-size="14">Model Engine</text>
-                <text x="860" y="112" fill="#c9d1d9" text-anchor="middle" font-size="11">Stacked LSTM Deep Network</text>
-                <text x="860" y="128" fill="#c9d1d9" text-anchor="middle" font-size="11">SHAP Feature Ranking</text>
-                <text x="860" y="144" fill="#8b949e" text-anchor="middle" font-size="10">Adam + Early Stopping</text>
-
-                <!-- Dashboard Serving Block -->
-                <rect x="760" y="260" width="200" height="100" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
-                <text x="860" y="295" fill="#3fb950" text-anchor="middle" font-weight="bold" font-size="14">Serving & Analytics</text>
-                <text x="860" y="318" fill="#c9d1d9" text-anchor="middle" font-size="12">Streamlit 5-Page App</text>
-                <text x="860" y="335" fill="#8b949e" text-anchor="middle" font-size="10">RUL Alerts & Fleet Health</text>
-            </svg>
+    <div class="container">
+        
+        <!-- Project 1 -->
+        <div class="card">
+            <div>
+                <span class="tag tag-p1">Deep Learning & Time-Series</span>
+                <h2>AeroPulse RUL Engine</h2>
+                <p>Remaining Useful Life (RUL) estimation for turbofan jet engines using multi-sensor time-series sliding windows and LSTM networks.</p>
+                <div class="tech-stack">
+                    <span class="tech-item">PyTorch</span>
+                    <span class="tech-item">NASA C-MAPS</span>
+                    <span class="tech-item">LSTM</span>
+                    <span class="tech-item">MLflow</span>
+                </div>
+            </div>
+            <a href="#" class="btn">View Architecture & Code</a>
         </div>
+
+        <!-- Project 2 -->
+        <div class="card">
+            <div>
+                <span class="tag tag-p2">Real-Time MLOps</span>
+                <h2>ShieldOps Anomaly Detector</h2>
+                <p>Unsupervised real-time sensor anomaly detection pipeline using Autoencoders & Isolation Forest for active fault isolation.</p>
+                <div class="tech-stack">
+                    <span class="tech-item">FastAPI</span>
+                    <span class="tech-item">Autoencoder</span>
+                    <span class="tech-item">Docker</span>
+                    <span class="tech-item">Streamlit</span>
+                </div>
+            </div>
+            <a href="#" class="btn" style="background-color: var(--accent-green);">View Architecture & Code</a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="card">
+            <div>
+                <span class="tag tag-p3">Reliability Engineering</span>
+                <h2>FleetReliability Analytics</h2>
+                <p>Engine fleet hazard modeling and failure probability curves using Cox Proportional Hazards and Weibull distribution analysis.</p>
+                <div class="tech-stack">
+                    <span class="tech-item">Lifelines</span>
+                    <span class="tech-item">Scikit-Learn</span>
+                    <span class="tech-item">XGBoost</span>
+                    <span class="tech-item">Plotly</span>
+                </div>
+            </div>
+            <a href="#" class="btn" style="background-color: var(--accent-purple); color: #fff;">View Architecture & Code</a>
+        </div>
+
     </div>
 
-    <div class="grid">
-        <div class="card">
-            <div class="layer-title bronze">⚡ 1. Ingestion (Bronze Layer)</div>
-            <ul>
-                <li>Extracts NASA C-MAPSS raw multi-sensor engine simulation readings.</li>
-                <li>Converts raw unstructured text logs into highly efficient <code>.parquet</code> files.</li>
-                <li>Attaches schema definitions and operational run metadata.</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <div class="layer-title silver">🧹 2. Cleansing (Silver Layer)</div>
-            <ul>
-                <li>Filters constant non-informative sensor columns.</li>
-                <li>Scales dynamic features using min-max bounds normalization.</li>
-                <li>Calculates piecewise linear target RUL curves for deep training models.</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <div class="layer-title gold">⚙️ 3. Feature Matrix (Gold Layer)</div>
-            <ul>
-                <li>Constructs sequential 30-cycle time-series sliding window tensors.</li>
-                <li>Generates rolling temporal trend metrics and delta indicators.</li>
-                <li>Outputs serialized NumPy arrays prepared for neural network execution.</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <div class="layer-title serving">📊 4. Deep Learning & Dashboard</div>
-            <ul>
-                <li>Stacked 2-layer LSTM network trained to evaluate failure curves.</li>
-                <li>Model explainability integration via SHAP values for diagnostic trust.</li>
-                <li>Interactive Streamlit dashboard displaying fleet health indexes and predictive maintenance alerts.</li>
-            </ul>
-        </div>
-    </div>
-</div>
+    <footer>
+        <p>© 2026 Predictive Maintenance Portfolio | Built with NASA C-MAPS Dataset</p>
+    </footer>
 
 </body>
 </html>
