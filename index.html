@@ -334,30 +334,6 @@
         .info-card h5 { color: var(--accent-blue); font-size: 0.92rem; margin-bottom: 0.4rem; }
         .info-card p { color: var(--text-sub); font-size: 0.83rem; line-height: 1.4; }
 
-        /* Project Image Frame */
-        .project-img-frame {
-            width: 100%;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--card-border);
-            background-color: var(--code-bg);
-        }
-
-        .project-img-frame img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .img-caption {
-            font-size: 0.8rem;
-            color: var(--text-sub);
-            text-align: center;
-            padding: 0.5rem;
-            background: #111827;
-        }
-
         /* Technical Arsenal Section */
         .arsenal-grid {
             display: grid;
@@ -565,16 +541,6 @@
                 <p class="project-desc">
                     <strong>Presented by Manisha Bhalla (M25DE105002)</strong> — Solves the <em>Trust Gap in RUL Prediction</em>: bridging the divergence between reported benchmark RMSE and real deployment reliability. Incorporates evaluation-protocol auditing, bidirectional-LSTM ablation, and cross-domain regime transfer across all 4 NASA C-MAPSS sub-datasets.
                 </p>
-
-                <!-- Project Image Frame (Presentation Slide / Diagram) -->
-                <div class="project-img-frame">
-                    <!-- Simply place your image file in the same folder or update the src path -->
-                    <img src="nasa-cmaps-architecture.png" alt="AeroPulse PHM NASA C-MAPSS Architecture" onerror="this.style.display='none'; document.getElementById('img-fallback').style.display='block';">
-                    <div id="img-fallback" style="display:none; padding:1.5rem; text-align:center; color:var(--text-sub); font-size:0.85rem;">
-                        🖼️ <em>Slide / Image Placeholder: Save your presentation image as <code>nasa-cmaps-architecture.png</code> in the same folder to display it here.</em>
-                    </div>
-                    <div class="img-caption">Figure: Aeropulse PHM Framework Slide & System Architecture Diagram</div>
-                </div>
 
                 <h4 style="color: var(--text-main); margin-bottom: 0.5rem; font-size: 0.95rem;">🚧 Key Barriers to Trustworthy RUL Prediction Addressed:</h4>
                 <div class="info-grid">
