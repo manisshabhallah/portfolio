@@ -3,214 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Data Engineer</title>
+    <title>Architecture — NASA Turbofan RUL Pipeline</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-color: #f8fafc;
-            --accent-color: #38bdf8;
-            --sub-text: #94a3b8;
-            --border-color: #334155;
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-amber: #d29922;
+            --accent-purple: #bc8cff;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-primary);
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
+            padding: 2rem;
+            line-height: 1.5;
         }
 
         .container {
-            max-width: 900px;
-            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         header {
-            text-align: center;
-            padding: 40px 0;
+            margin-bottom: 2rem;
             border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
         }
 
         h1 {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 10px;
+            color: #ffffff;
+            font-size: 2rem;
+            margin: 0 0 0.5rem 0;
         }
 
         .subtitle {
-            font-size: 1.1rem;
-            color: var(--sub-text);
-        }
-
-        .badges {
-            margin-top: 15px;
+            color: var(--text-secondary);
+            font-size: 1rem;
         }
 
         .badge {
-            display: inline-block;
-            padding: 6px 12px;
-            background-color: #2563eb;
-            color: white;
-            text-decoration: none;
+            background-color: rgba(88, 166, 255, 0.15);
+            color: var(--accent-blue);
+            padding: 0.25rem 0.5rem;
             border-radius: 4px;
-            font-weight: bold;
             font-size: 0.85rem;
-            margin: 0 5px;
-        }
-
-        section {
-            margin: 30px 0;
-        }
-
-        h2 {
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 5px;
-            display: inline-block;
+            font-weight: 600;
         }
 
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 20px;
-            margin-top: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        pre {
-            background-color: #090d16;
-            color: #38bdf8;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        table {
+        .arch-diagram {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
+            overflow-x: auto;
         }
 
-        th, td {
-            border: 1px solid var(--border-color);
-            padding: 12px;
-            text-align: left;
+        svg {
+            width: 100%;
+            height: auto;
+            min-width: 900px;
         }
 
-        th {
-            background-color: var(--card-bg);
-            color: var(--accent-color);
-        }
-
-        .metrics-grid {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
-        .metric-box {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid var(--border-color);
+        .layer-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .metric-box h3 {
-            font-size: 2rem;
-            color: var(--accent-color);
+        .bronze { color: var(--accent-amber); }
+        .silver { color: var(--accent-blue); }
+        .gold { color: var(--accent-purple); }
+        .serving { color: var(--accent-green); }
+
+        ul {
+            padding-left: 1.2rem;
             margin: 0;
+            color: var(--text-secondary);
+        }
+
+        li { margin-bottom: 0.4rem; }
+
+        code {
+            font-family: monospace;
+            background-color: rgba(110, 118, 129, 0.4);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    
     <header>
-        <h1>[Aapka Naam]</h1>
-        <p class="subtitle">Senior Data Engineer | Distributed Systems & Big Data</p>
-        <div class="badges">
-            <a href="#" class="badge">LinkedIn</a>
-            <a href="#" class="badge" style="background:#171515;">GitHub</a>
-            <a href="#" class="badge" style="background:#ea4335;">Email</a>
-        </div>
+        <span class="badge">M.Tech Data Engineering Project</span>
+        <h1>End-to-End Turbofan Engine Predictive Maintenance Engine</h1>
+        <p class="subtitle">Medallion Data Lakehouse Architecture • Deep Learning RUL Estimation • Model Explainability</p>
     </header>
 
-    <section>
-        <h2>🛠 Tech Stack & Skills Matrix</h2>
-        <table>
-            <tr>
-                <th>Domain</th>
-                <th>Technologies</th>
-            </tr>
-            <tr>
-                <td><strong>Languages</strong></td>
-                <td>Python, SQL, Scala, Bash</td>
-            </tr>
-            <tr>
-                <td><strong>Data Engines</strong></td>
-                <td>Apache Spark, PySpark, Databricks, Delta Lake</td>
-            </tr>
-            <tr>
-                <td><strong>Warehousing</strong></td>
-                <td>Snowflake, BigQuery, AWS Redshift</td>
-            </tr>
-            <tr>
-                <td><strong>Orchestration</strong></td>
-                <td>Apache Airflow, dbt, Prefect</td>
-            </tr>
-        </table>
-    </section>
+    <div class="card">
+        <h2>System Architecture Overview</h2>
+        <div class="arch-diagram">
+            <svg viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg">
+                <!-- Definitions for arrows -->
+                <defs>
+                    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b949e"/>
+                    </marker>
+                </defs>
 
-    <section>
-        <h2>🏗 Architectural Projects</h2>
-        
+                <!-- Data Source -->
+                <rect x="20" y="160" width="120" height="100" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+                <text x="80" y="200" fill="#ffffff" text-anchor="middle" font-weight="bold" font-size="14">NASA C-MAPSS</text>
+                <text x="80" y="225" fill="#8b949e" text-anchor="middle" font-size="12">Raw Sensor Files</text>
+                <text x="80" y="242" fill="#8b949e" text-anchor="middle" font-size="10">(21 Sensors / .txt)</text>
+
+                <!-- Arrow 1 -->
+                <line x1="140" y1="210" x2="180" y2="210" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+                <!-- Bronze Layer -->
+                <rect x="180" y="160" width="140" height="100" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+                <text x="250" y="195" fill="#d29922" text-anchor="middle" font-weight="bold" font-size="14">Bronze Layer</text>
+                <text x="250" y="220" fill="#c9d1d9" text-anchor="middle" font-size="12">Raw Ingestion</text>
+                <text x="250" y="240" fill="#8b949e" text-anchor="middle" font-size="11">Parquet Conversion</text>
+
+                <!-- Arrow 2 -->
+                <line x1="320" y1="210" x2="360" y2="210" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+                <!-- Silver Layer -->
+                <rect x="360" y="160" width="150" height="100" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+                <text x="435" y="190" fill="#58a6ff" text-anchor="middle" font-weight="bold" font-size="14">Silver Layer</text>
+                <text x="435" y="212" fill="#c9d1d9" text-anchor="middle" font-size="11">Data Normalization</text>
+                <text x="435" y="228" fill="#c9d1d9" text-anchor="middle" font-size="11">Sensor Selection</text>
+                <text x="435" y="244" fill="#c9d1d9" text-anchor="middle" font-size="11">Piecewise RUL Labels</text>
+
+                <!-- Arrow 3 -->
+                <line x1="510" y1="210" x2="550" y2="210" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+                <!-- Gold Layer -->
+                <rect x="550" y="160" width="150" height="100" rx="8" fill="#161b22" stroke="#bc8cff" stroke-width="2"/>
+                <text x="625" y="190" fill="#bc8cff" text-anchor="middle" font-weight="bold" font-size="14">Gold Layer</text>
+                <text x="625" y="212" fill="#c9d1d9" text-anchor="middle" font-size="11">30-Cycle Windows</text>
+                <text x="625" y="228" fill="#c9d1d9" text-anchor="middle" font-size="11">Lag & Delta Features</text>
+                <text x="625" y="244" fill="#8b949e" text-anchor="middle" font-size="10">Training .npy Arrays</text>
+
+                <!-- Split Arrows to Training and Inference -->
+                <path d="M 700 210 L 730 210 L 730 110 L 760 110" fill="none" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+                <path d="M 700 210 L 730 210 L 730 310 L 760 310" fill="none" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+                <!-- Training Block -->
+                <rect x="760" y="60" width="200" height="100" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+                <text x="860" y="90" fill="#3fb950" text-anchor="middle" font-weight="bold" font-size="14">Model Engine</text>
+                <text x="860" y="112" fill="#c9d1d9" text-anchor="middle" font-size="11">Stacked LSTM Deep Network</text>
+                <text x="860" y="128" fill="#c9d1d9" text-anchor="middle" font-size="11">SHAP Feature Ranking</text>
+                <text x="860" y="144" fill="#8b949e" text-anchor="middle" font-size="10">Adam + Early Stopping</text>
+
+                <!-- Dashboard Serving Block -->
+                <rect x="760" y="260" width="200" height="100" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+                <text x="860" y="295" fill="#3fb950" text-anchor="middle" font-weight="bold" font-size="14">Serving & Analytics</text>
+                <text x="860" y="318" fill="#c9d1d9" text-anchor="middle" font-size="12">Streamlit 5-Page App</text>
+                <text x="860" y="335" fill="#8b949e" text-anchor="middle" font-size="10">RUL Alerts & Fleet Health</text>
+            </svg>
+        </div>
+    </div>
+
+    <div class="grid">
         <div class="card">
-            <h3>1. Enterprise Streaming Analytics Platform</h3>
-            <pre>
- [ Sensors / Web ] ──► [ Kafka ] ──► [ Spark Streaming ] ──► [ Snowflake ] ──► [ Power BI ]
-            </pre>
+            <div class="layer-title bronze">⚡ 1. Ingestion (Bronze Layer)</div>
             <ul>
-                <li>Ingested and processed <strong>50M+ daily events</strong> with sub-second latency.</li>
-                <li>Reduced query costs by 40% using optimized partitioning and clustering.</li>
+                <li>Extracts NASA C-MAPSS raw multi-sensor engine simulation readings.</li>
+                <li>Converts raw unstructured text logs into highly efficient <code>.parquet</code> files.</li>
+                <li>Attaches schema definitions and operational run metadata.</li>
             </ul>
         </div>
 
         <div class="card">
-            <h3>2. Delta Lake Medallion Migration</h3>
-            <pre>
- [ Raw DBs ] ──► [ BRONZE (Raw) ] ──► [ SILVER (Cleaned) ] ──► [ GOLD (Data Marts) ]
-            </pre>
+            <div class="layer-title silver">🧹 2. Cleansing (Silver Layer)</div>
             <ul>
-                <li>Migrated 5TB+ historical data to Databricks Lakehouse architecture.</li>
-                <li>Built 80+ standardized data models using dbt.</li>
+                <li>Filters constant non-informative sensor columns.</li>
+                <li>Scales dynamic features using min-max bounds normalization.</li>
+                <li>Calculates piecewise linear target RUL curves for deep training models.</li>
             </ul>
         </div>
-    </section>
 
-    <section>
-        <h2>📊 Key Metrics</h2>
-        <div class="metrics-grid">
-            <div class="metric-box">
-                <h3>50M+</h3>
-                <p>Daily Events Processed</p>
-            </div>
-            <div class="metric-box">
-                <h3>40%</h3>
-                <p>Query Time Reduced</p>
-            </div>
-            <div class="metric-box">
-                <h3>99.9%</h3>
-                <p>SLA Pipeline Uptime</p>
-            </div>
+        <div class="card">
+            <div class="layer-title gold">⚙️ 3. Feature Matrix (Gold Layer)</div>
+            <ul>
+                <li>Constructs sequential 30-cycle time-series sliding window tensors.</li>
+                <li>Generates rolling temporal trend metrics and delta indicators.</li>
+                <li>Outputs serialized NumPy arrays prepared for neural network execution.</li>
+            </ul>
         </div>
-    </section>
 
+        <div class="card">
+            <div class="layer-title serving">📊 4. Deep Learning & Dashboard</div>
+            <ul>
+                <li>Stacked 2-layer LSTM network trained to evaluate failure curves.</li>
+                <li>Model explainability integration via SHAP values for diagnostic trust.</li>
+                <li>Interactive Streamlit dashboard displaying fleet health indexes and predictive maintenance alerts.</li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 </body>
