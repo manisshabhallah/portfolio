@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manisha Bhalla | Senior Data & AI Engineer</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --accent-hover: #0284c7;
+            --tag-bg: #334155;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header / Hero */
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        header p.subtitle {
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        header p.location {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.4rem;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Section Titles */
+        section {
+            margin: 3rem 0;
+        }
+
+        h2.section-title {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* About Section */
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 1.2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 0.8rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--accent-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+        }
+
+        .project-links a {
+            color: var(--accent-color);
+            margin-left: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            border-left: 2px solid var(--border-color);
+            padding-left: 1.5rem;
+            margin-left: 0.5rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.95rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+
+        .job-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .company-dates {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .job-bullets {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            padding-left: 1.2rem;
+        }
+
+        .job-bullets li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Manisha Bhalla</h1>
+            <p class="subtitle">Senior Data & AI Lead | Data Engineer</p>
+            <p class="location"><i class="fa-solid fa-location-dot"></i> Dublin, California, USA</p>
+            
+            <div class="social-links">
+                <a href="mailto:manisha.bhalla20@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </header>
+
+        <!-- Profile / Summary -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <p class="about-text">
+                Strategic and results-driven <strong>Senior Data & AI Lead</strong> with 13+ years of experience specializing in Big Data Engineering, Medallion Architecture pipelines, automated data quality, and cloud data delivery models. Currently pursuing my <strong>M.Tech in Data Engineering from IIT Jodhpur (2026)</strong> and holding a Data Science & ML Certification from IIT Delhi.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section id="skills">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Big Data & Cloud</h3>
+                    <div class="tags">
+                        <span class="tag">PySpark</span>
+                        <span class="tag">Delta Lake</span>
+                        <span class="tag">Medallion Arch</span>
+                        <span class="tag">AWS (S3, Glue)</span>
+                        <span class="tag">GCP BigQuery</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Data Quality & Engineering</h3>
+                    <div class="tags">
+                        <span class="tag">ETL Validation</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Schema Validation</span>
+                        <span class="tag">Data Integrity</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Languages & Automation</h3>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">REST APIs</span>
+                        <span class="tag">Jenkins CI/CD</span>
+                        <span class="tag">Git</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applied Projects -->
+        <section id="projects">
+            <h2 class="section-title">Data Engineering Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Real-Time Data Lakehouse Pipeline (Medallion Arch)</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/YOUR-GITHUB-USERNAME/pyspark-lakehouse-medallion-pipeline" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        Engineered an end-to-end Big Data ETL pipeline using <strong>PySpark</strong> and <strong>Medallion Architecture (Bronze → Silver → Gold)</strong> to ingest, clean, and aggregate streaming/batch data into Delta Lake format. Implemented automated schema checks, caching, and partition tuning, reducing processing overhead by 35%.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">PySpark</span>
+                        <span class="tag">Delta Lake</span>
+                        <span class="tag">Spark SQL</span>
+                        <span class="tag">Data Quality</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>GCP Infrastructure & Auto-Scaling Compute Pipeline</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/YOUR-GITHUB-USERNAME/gcp-infrastructure-autoscale-pipeline" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        Designed automated IaC scripts using <strong>gcloud CLI</strong> for GCP Compute Engine provisioning, VPC firewall policies, and IAM roles. Configured Managed Instance Groups (MIGs) with dynamic autoscaling policies integrated with Prometheus monitoring.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Google Cloud</span>
+                        <span class="tag">gcloud CLI</span>
+                        <span class="tag">Autoscaling</span>
+                        <span class="tag">IAM</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section id="experience">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="job-title">Lead Data & Quality Automation Consultant</div>
+                    <div class="company-dates">Xebia IT Architects | Dublin, CA (Client: Levi Strauss & Co. / PayU) | 2019 – Present</div>
+                    <ul class="job-bullets">
+                        <li>Architect and implement automated data quality validation frameworks for PySpark/AWS Glue ETL pipelines, reducing manual validation overhead by 40%.</li>
+                        <li>Manage CI/CD deployment execution (Jenkins, AWS) for continuous data pipeline verification across QA, Staging, and Production.</li>
+                        <li>Lead onshore-offshore cross-functional data teams, sprint planning, and client engagement.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-title">Senior Quality & Delivery Consultant</div>
+                    <div class="company-dates">Coforge (NIIT Technologies) | London, UK & India | 2014 – 2019</div>
+                    <ul class="job-bullets">
+                        <li>Managed end-to-end data integration and API quality for large media enterprise solutions (Client: Channel4, UK).</li>
+                        <li>Enforced automated regression suites to validate high-volume data feeds and database schemas.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>M.Tech in Data Engineering</h3>
+                    <p style="color: var(--text-muted);">IIT Jodhpur (Working Professional Program | 2026)</p>
+                </div>
+                <div class="skill-card">
+                    <h3>PG Cert. in Data Science & ML</h3>
+                    <p style="color: var(--text-muted);">IIT Delhi (2022)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Manisha Bhalla. Built with HTML, CSS & GitHub Pages.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
