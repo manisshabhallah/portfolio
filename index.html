@@ -3,203 +3,480 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI, MLOps & Big Data Portfolio</title>
+    <title>Manisha Bhalla | Senior Data Engineer & MLOps</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
+            --bg-color: #0b0f19;
+            --card-bg: #151c2c;
+            --card-border: #232d42;
+            --text-main: #f1f5f9;
+            --text-sub: #94a3b8;
             --accent-blue: #38bdf8;
-            --accent-green: #34d399;
             --accent-purple: #c084fc;
-            --border-color: #334155;
+            --accent-green: #34d399;
+            --code-bg: #090d16;
+            --pass-green: #10b981;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-primary);
+            color: var(--text-main);
             line-height: 1.6;
             padding: 2rem;
         }
 
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Hero Header */
         header {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto 3rem auto;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border-color);
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--card-border);
+            margin-bottom: 3rem;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+        }
+
+        header .subtitle {
+            font-size: 1.25rem;
             color: var(--accent-blue);
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 1rem;
-            text-transform: uppercase;
         }
 
-        .tag-p1 { background-color: rgba(192, 132, 252, 0.15); color: var(--accent-purple); }
-        .tag-p2 { background-color: rgba(56, 189, 248, 0.15); color: var(--accent-blue); }
-        .tag-p3 { background-color: rgba(52, 211, 153, 0.15); color: var(--accent-green); }
-
-        .card h2 {
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+        header .bio {
+            color: var(--text-sub);
+            font-size: 1.05rem;
+            max-width: 850px;
             margin-bottom: 1.5rem;
         }
 
-        .tech-item {
-            background-color: #0f172a;
-            color: var(--text-primary);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            border: 1px solid var(--border-color);
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        .btn {
-            display: inline-block;
-            text-align: center;
-            background-color: var(--accent-purple);
-            color: #fff;
-            padding: 0.6rem 1.2rem;
+        .social-links a {
+            color: var(--text-main);
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 0.5rem 1rem;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: bold;
-            transition: opacity 0.2s;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
         }
 
-        .btn:hover {
-            opacity: 0.9;
+        .social-links a:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title span {
+            color: var(--accent-blue);
+        }
+
+        /* Project Card Layout */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-title h3 {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+        }
+
+        .project-subtitle {
+            font-size: 0.95rem;
+            color: var(--accent-purple);
+            font-weight: 600;
+            margin-top: 0.2rem;
+        }
+
+        .btn-github {
+            display: inline-block;
+            background-color: #24292e;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #444c56;
+            transition: background-color 0.2s;
+        }
+
+        .btn-github:hover {
+            background-color: #2f363d;
+        }
+
+        .project-desc {
+            color: var(--text-sub);
+            margin-bottom: 1.5rem;
+            font-size: 0.98rem;
+        }
+
+        /* Code & Architecture Blocks */
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid var(--card-border);
+            padding: 1.2rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--card-border);
+        }
+
+        th {
+            background-color: var(--code-bg);
+            color: var(--accent-blue);
+        }
+
+        td {
+            background-color: rgba(9, 13, 22, 0.4);
+            color: var(--text-main);
+        }
+
+        .pass-tag {
+            color: var(--pass-green);
+            font-weight: bold;
+        }
+
+        /* Technical Arsenal Section */
+        .arsenal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .arsenal-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .arsenal-card h4 {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .arsenal-list {
+            list-style: none;
+        }
+
+        .arsenal-list li {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .arsenal-list li::before {
+            content: "▹";
+            color: var(--accent-purple);
+            margin-right: 0.5rem;
         }
 
         footer {
             text-align: center;
-            margin-top: 4rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+            padding: 3rem 0 1rem 0;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--card-border);
+            margin-top: 3rem;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1> AI, MLOps & Big Data Portfolio</h1>
-        <p>Production-Grade Deep Learning, Privacy Preservation & Distributed Systems Engineering</p>
-    </header>
+    <div class="wrapper">
+        <!-- Header / Bio -->
+        <header>
+            <h1>Manisha Bhalla</h1>
+            <div class="subtitle">Senior Data Engineer | MLOps & Scalable Data Pipelines</div>
+            <p class="bio">
+                Specialized in building production-grade data architectures, multi-stage NLP & speech processing systems, and scalable predictive maintenance solutions using Medallion Lakehouse patterns, PySpark, and containerized MLOps workflows.
+            </p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/manisha-bhalla-48226319/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/manisshabhallah" target="_blank">GitHub</a>
+                <a href="mailto:manisha.bhalla20@gmail.com">Email Me</a>
+            </div>
+        </header>
 
-    <div class="container">
-        
-        <!-- Project 1: HuBERT Speech Unlearning -->
-        <div class="card">
-            <div>
-                <span class="tag tag-p1">Ethical AI & Speech Processing</span>
-                <h2>Privacy-Preserving Speech Representation Unlearning</h2>
-                <p>Advanced machine unlearning framework using HuBERT and Gradient Reversal Layers (GRL) to strip sensitive speaker traits while preserving representations.</p>
-                <div class="tech-stack">
-                    <span class="tech-item">HuBERT</span>
-                    <span class="tech-item">Gradient Reversal (GRL)</span>
-                    <span class="tech-item">PyTorch</span>
-                    <span class="tech-item">Ethical AI</span>
+        <!-- Projects Section -->
+        <section>
+            <h2 class="section-title"><span>01.</span> Featured Engineering Projects</h2>
+
+            <!-- PROJECT 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">
+                        <h3>Privacy-Preserving Speech Representation Unlearning</h3>
+                        <div class="project-subtitle">Selective Speaker Identity Unlearning in Self-Supervised Speech Models</div>
+                    </div>
+                    <a href="https://github.com/manisshabhallah/Privacy-Preserving-Speech-Representation-Unlearning-using-HuBERT-GRL" target="_blank" class="btn-github">View Source Code ↗</a>
+                </div>
+
+                <p class="project-desc">
+                    Modern self-supervised speech models like HuBERT encode both phonetic content and speaker identity in the same 768-dimensional hidden state. This creates a serious privacy risk — if a user revokes consent, their voice remains embedded in the model with no way to remove it short of full retraining (which costs thousands of dollars and weeks of GPU time).<br><br>
+                    This project implements Selective Speaker Identity Unlearning: a lightweight framework that surgically removes specific speakers from a trained model — without retraining from scratch, and without access to the original training data.
+                </p>
+
+                <h4 style="color: var(--text-main); margin-bottom: 0.5rem; font-size: 0.95rem;">Results at a Glance:</h4>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Before</th>
+                                <th>After (GRL)</th>
+                                <th>Target</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Forget Speaker Accuracy</td>
+                                <td>100.0%</td>
+                                <td>0.0%</td>
+                                <td>&lt; 10%</td>
+                                <td class="pass-tag">✅ PASS</td>
+                            </tr>
+                            <tr>
+                                <td>Retain Speaker Accuracy</td>
+                                <td>94.4%</td>
+                                <td>96.4%</td>
+                                <td>&gt; 80%</td>
+                                <td class="pass-tag">✅ PASS</td>
+                            </tr>
+                            <tr>
+                                <td>MIA Confidence (forget)</td>
+                                <td>High</td>
+                                <td>0.0000</td>
+                                <td>~Random (0.0092)</td>
+                                <td class="pass-tag">✅ PASS</td>
+                            </tr>
+                            <tr>
+                                <td>Privacy Gap</td>
+                                <td>—</td>
+                                <td>−0.0092</td>
+                                <td>Negative</td>
+                                <td class="pass-tag">✅ PASS</td>
+                            </tr>
+                            <tr>
+                                <td>Content Similarity</td>
+                                <td>—</td>
+                                <td>0.9984</td>
+                                <td>&gt; 0.80</td>
+                                <td class="pass-tag">✅ PASS</td>
+                            </tr>
+                            <tr>
+                                <td>WER (Whisper-tiny)</td>
+                                <td>—</td>
+                                <td>3.92</td>
+                                <td>Low WER</td>
+                                <td class="pass-tag">✅ PASS</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="color: var(--accent-purple); font-size: 0.85rem; margin-bottom: 1.2rem;">
+                    * All 6 targets achieved. The model completely forgets p225 & p226 while retaining 96.4% accuracy on the remaining 107 speakers. Total trainable parameters: 1.7M (backbone stays frozen).
+                </p>
+
+                <h4 style="color: var(--text-main); margin-bottom: 0.5rem; font-size: 0.95rem;">🏗️ System Architecture:</h4>
+<pre>
+Raw Audio (16kHz)
+      │
+      ▼
+┌─────────────────────────────────────┐
+│   HuBERT-base-ls960 Backbone        │  ← FROZEN (94.4M params)
+│   Hidden State: 768-dim             │
+└─────────────────────────────────────┘
+      │
+      ├──────────────────┬─────────────────────┐
+      ▼                  ▼                     ▼
+┌──────────────┐  ┌──────────────┐   ┌──────────────────────┐
+│ Speaker      │  │ Content      │   │ GRL + Adversarial    │
+│ Encoder      │  │ Encoder      │   │ Head                 │
+│ (~0.9M)      │  │ (~0.6M)      │   │ (~0.2M)              │
+│              │  │              │   │                      │
+│ Attentive    │  │ Residual MLP │   │ Gradient Reversal    │
+│ Stats Pool   │  │ preserves    │   │ Layer flips grads    │
+│ + MLP        │  │ phonetics    │   │ for forget speakers  │
+└──────┬───────┘  └──────┬───────┘   └──────────┬───────────┘
+       │                 │                        │
+       ▼                 ▼                        ▼
+  Speaker Logits    Content MSE Loss        KL → Uniform
+  (CE Loss)         (phonetics intact)      (max confusion
+                                           on forget spks)
+</pre>
+            </div>
+
+            <!-- PROJECT 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">
+                        <h3>AeroPulse PHM Framework — NASA C-MAPSS</h3>
+                        <div class="project-subtitle">End-to-End Prognostics & Health Management for Turbofan Engines</div>
+                    </div>
+                    <a href="https://github.com/manisshabhallah/nasa-cmaps-rul-prediction" target="_blank" class="btn-github">View Source Code ↗</a>
+                </div>
+
+                <p class="project-desc">
+                    This project builds a complete predictive maintenance system for aircraft engines using 21 sensor readings over time to predict Remaining Useful Life (RUL). The system implements a modern Medallion architecture (Bronze → Silver → Gold), deep LSTM neural networks, SHAP model explainability, and an interactive Streamlit operational dashboard.
+                </p>
+
+                <h4 style="color: var(--text-main); margin-bottom: 0.5rem; font-size: 0.95rem;">🏗️ Medallion Pipeline Architecture:</h4>
+<pre>
+data/
+ ├── raw/     → NASA C-MAPSS sensor logs (.txt)
+ ├── bronze/  → Raw ingestion Parquet tables with added metadata
+ ├── silver/  → Normalized, cleaned, piecewise-RUL labeled Parquet
+ └── gold/    → 30-cycle sliding window arrays for Deep Learning (LSTM)
+</pre>
+            </div>
+
+            <!-- PROJECT 3 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">
+                        <h3>Scalable Hybrid News Detection & Verification Pipeline</h3>
+                        <div class="project-subtitle">Distributed Verification System for Duplicate, Paraphrased & Synthetic News</div>
+                    </div>
+                    <a href="https://github.com/manisshabhallah/Scalable-Hybrid-News-Detection-Verification-Pipeline" target="_blank" class="btn-github">View Source Code ↗</a>
+                </div>
+
+                <p class="project-desc">
+                    Designed and built a multi-stage scalable news analysis pipeline capable of identifying near-duplicate articles using approximate similarity matching (MinHash + LSH) alongside deep semantic analysis (Sentence-BERT) to detect AI-generated and manipulated textual news content.
+                </p>
+
+                <h4 style="color: var(--text-main); margin-bottom: 0.5rem; font-size: 0.95rem;">🏗️ Six-Stage Pipeline & Data Flow:</h4>
+<pre>
+[ Data Ingestion ] ➔ [ MinHash + LSH ] ➔ [ S-BERT Embeddings ] ➔ [ AI Content Classifier ] ➔ [ Hybrid Decision Fusion ] ➔ [ FastAPI / Gradio UI ]
+</pre>
+            </div>
+        </section>
+
+        <!-- Technical Arsenal Section -->
+        <section style="margin-top: 3rem;">
+            <h2 class="section-title"><span>02.</span> Technical Arsenal</h2>
+
+            <div class="arsenal-grid">
+                <!-- Data Engineering -->
+                <div class="arsenal-card">
+                    <h4>Data Engineering</h4>
+                    <ul class="arsenal-list">
+                        <li>PySpark & BigData Analytics</li>
+                        <li>Medallion Architecture (Bronze/Silver/Gold)</li>
+                        <li>MinHash & Locality-Sensitive Hashing (LSH)</li>
+                        <li>Distributed Data Ingestion</li>
+                        <li>SQL (PostgreSQL, Redshift, BigQuery)</li>
+                    </ul>
+                </div>
+
+                <!-- MLOps & Advanced AI -->
+                <div class="arsenal-card">
+                    <h4>MLOps & Deep Learning</h4>
+                    <ul class="arsenal-list">
+                        <li>PyTorch & TensorFlow</li>
+                        <li>HuBERT Speech Architectures & GRL</li>
+                        <li>Sentence-BERT & Transformers</li>
+                        <li>LSTM & Time-Series RUL Modeling</li>
+                        <li>SHAP Model Interpretability</li>
+                    </ul>
+                </div>
+
+                <!-- Systems & Infrastructure -->
+                <div class="arsenal-card">
+                    <h4>Tools & Deployment</h4>
+                    <ul class="arsenal-list">
+                        <li>FastAPI & REST Web Services</li>
+                        <li>Streamlit & Gradio Analytics Apps</li>
+                        <li>Docker Containerization</li>
+                        <li>Git & CI/CD Pipelines</li>
+                        <li>Linux / Shell Scripting</li>
+                    </ul>
                 </div>
             </div>
-            <a href="https://github.com/your-username/Privacy-Preserving-Speech-Representation-Unlearning-using-HuBERT-GRL" target="_blank" class="btn">View Source Code</a>
-        </div>
+        </section>
 
-        <!-- Project 2: NASA C-MAPS RUL Engine -->
-        <div class="card">
-            <div>
-                <span class="tag tag-p2">Predictive Maintenance & IoT</span>
-                <h2>AeroPulse Jet Engine RUL Prediction</h2>
-                <p>Remaining Useful Life (RUL) estimation pipeline across multi-operating regimes (FD001-FD004) using multi-sensor time-series modeling.</p>
-                <div class="tech-stack">
-                    <span class="tech-item">NASA C-MAPS</span>
-                    <span class="tech-item">LSTM / CNN</span>
-                    <span class="tech-item">Time-Series</span>
-                    <span class="tech-item">Sensor Degradation</span>
-                </div>
-            </div>
-            <a href="https://github.com/your-username/nasa-cmaps-rul-prediction" target="_blank" class="btn" style="background-color: var(--accent-blue); color: #0f172a;">View Source Code</a>
-        </div>
-
-        <!-- Project 3: Scalable News Pipeline -->
-        <div class="card">
-            <div>
-                <span class="tag tag-p3">Big Data & Natural Language Processing</span>
-                <h2>Scalable Hybrid News Detection & Verification</h2>
-                <p>Distributed NLP and verification architecture built for processing high-throughput textual news streams and factual authenticity scoring.</p>
-                <div class="tech-stack">
-                    <span class="tech-item">NLP</span>
-                    <span class="tech-item">Scalable Pipelines</span>
-                    <span class="tech-item">Python</span>
-                    <span class="tech-item">Text Analytics</span>
-                </div>
-            </div>
-            <a href="https://github.com/your-username/Scalable-Hybrid-News-Detection-Verification-Pipeline" target="_blank" class="btn" style="background-color: var(--accent-green); color: #0f172a;">View Source Code</a>
-        </div>
-
+        <!-- Footer -->
+        <footer>
+            <p>© Manisha Bhalla | Senior Data Engineer Portfolio</p>
+        </footer>
     </div>
-
-    <footer>
-        <p>© Portfolio | Built with Advanced AI & Big Data Engineering</p>
-    </footer>
 
 </body>
 </html>
